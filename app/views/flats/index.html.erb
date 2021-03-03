@@ -1,0 +1,19 @@
+<h1>All Flats</h1>
+
+<div class="cards-container">
+  <% @flats.each do |flat| %>
+    <div class="card">
+        <h4><%= flat.name %></h4>
+        <p><%= flat.address %></p>
+        <div class="card-price">
+          Price/night: <%= flat.price_per_night %>$
+          Number of bed: <%= flat.number_of_guests %>
+        </div>
+        <%= link_to  'More Info', flat_path(flat) %>
+        <%= link_to "Remove",
+          flat_path(flat),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
+</div>
